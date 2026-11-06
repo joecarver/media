@@ -1,0 +1,57 @@
+{
+  "name": "@joecarver/media",
+  "version": "0.1.0",
+  "description": "Media storage for S3-compatible object storage (built for Hetzner): public CDN URLs, presigned URLs, uploads with immutable cache headers, and WebP/Opus transcoding of form uploads.",
+  "keywords": [
+    "s3",
+    "object-storage",
+    "hetzner",
+    "minio",
+    "media",
+    "upload",
+    "webp",
+    "opus",
+    "sharp",
+    "ffmpeg",
+    "astro"
+  ],
+  "license": "MIT",
+  "author": "Joe Carver",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joecarver/media.git"
+  },
+  "homepage": "https://github.com/joecarver/media#readme",
+  "bugs": "https://github.com/joecarver/media/issues",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./placeholder.css": "./src/placeholder.css"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "pnpm build && pnpm typecheck && node --test 'test/**/*.test.ts'"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "minio": "^8.0.7",
+    "sharp": "^0.35.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

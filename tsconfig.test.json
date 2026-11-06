@@ -1,0 +1,11 @@
+{
+  // Type-checks the tests against the built `dist/` typings. Node runs them
+  // directly by stripping the types, so only erasable syntax is allowed.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+    "erasableSyntaxOnly": true
+  },
+  "include": ["test"]
+}

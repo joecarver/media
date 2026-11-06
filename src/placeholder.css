@@ -1,0 +1,37 @@
+/*
+  Loading placeholder for images: a slow grey shimmer behind the image, visible
+  until it paints over it. Only shows if the element has a size before the image
+  arrives, so give the <img> its stored `width` and `height` attributes (with CSS
+  `height: auto`, browsers derive the aspect ratio from them) or put the class
+  on a fixed-size box.
+
+    @import "@joecarver/media/placeholder.css";
+    <img class="media-placeholder" src={url} width={w} height={h} alt="" />
+
+  Override the colours with --media-placeholder-base / --media-placeholder-highlight.
+*/
+.media-placeholder {
+  background: linear-gradient(
+    90deg,
+    var(--media-placeholder-base, #bebebe) 0%,
+    var(--media-placeholder-highlight, #f8f8f8) 50%,
+    var(--media-placeholder-base, #bebebe) 100%
+  );
+  background-size: 200% 100%;
+  animation: media-placeholder 5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media-placeholder {
+    animation: none;
+  }
+}
+
+@keyframes media-placeholder {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
